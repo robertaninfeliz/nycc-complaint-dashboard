@@ -1,0 +1,126 @@
+.table-container {
+  display: flex;
+}
+.complaint-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.complaint-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.complaint-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.complaint-btn:hover {
+  opacity: 0.9;
+}
+
+.constituent-btn {
+  background-color: #1976d2;
+  color: white;
+}
+
+.complaint-btn:disabled {
+  background-color: #e0e0e0;
+  cursor: not-allowed;
+}
+
+.complaint-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+}
+
+.table-header-row {
+  background-color: #f2f2f2;
+  position: sticky;
+  top: 0;
+}
+
+.table-header-cell,
+.table-data-cell {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.table-data-row {
+  border-bottom: 1px solid #ddd;
+}
+
+.complaint-title {
+  color: rgb(47, 86, 166);
+}
+
+.table-data-row:hover {
+  background-color: #f5f5f5;
+  transition: background-color 0.2s ease;
+}
+
+/* Ensure focus states for keyboard navigation */
+.table-container:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+
+/* Status colors (ensure contrast for accessibility) */
+.status-cell.closed {
+  color: #0a6300;
+  font-weight: bold;
+}
+
+.status-cell.open {
+  color: #8a3b00;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .complaint-table,
+  .table-header-row,
+  .table-data-row,
+  .table-header-cell,
+  .table-data-cell {
+    display: block;
+    width: 100%;
+  }
+
+  .table-header-row {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .table-data-row {
+    margin-bottom: 1rem;
+  }
+  .table-data-row:hover {
+    background-color: transparent;
+  }
+
+  .table-data-cell {
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 80%;
+  }
+
+  .table-data-cell:before {
+    position: absolute;
+    left: 1.5rem;
+    white-space: nowrap;
+    content: attr(data-label);
+    font-weight: bold;
+  }
+}
